@@ -24,7 +24,9 @@ function publicUrl(path) {
 }
 
 function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('ko-KR', { year: 'numeric', month: 'short', day: 'numeric' });
+  return new Date(iso).toLocaleString('ko-KR', {
+    year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
+  });
 }
 
 function videoNode(src, { thumb = false } = {}) {
