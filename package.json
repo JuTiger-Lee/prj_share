@@ -1,0 +1,13 @@
+{
+  "name": "project-share",
+  "version": "1.0.0",
+  "private": true,
+  "description": "프로젝트를 올리고 좋아요를 누를 수 있는 공유 사이트",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

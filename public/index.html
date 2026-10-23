@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>프로젝트 쇼케이스</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="logo">Projects</h1>
+      <button id="openUpload" class="btn btn-primary">프로젝트 올리기</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <p id="empty" class="empty" hidden>아직 올라온 프로젝트가 없어요.</p>
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <!-- 업로드 모달 -->
+  <dialog id="uploadDialog" class="dialog">
+    <form id="uploadForm" class="form">
+      <div class="dialog-head">
+        <h2>프로젝트 올리기</h2>
+        <button type="button" class="icon-btn" data-close aria-label="닫기">×</button>
+      </div>
+
+      <label><span>이름 <span class="req">*</span></span>
+        <input name="name" required maxlength="80" placeholder="예: 날씨 알림 앱">
+      </label>
+      <label><span>프로젝트 링크</span>
+        <input name="url" type="url" maxlength="500" placeholder="https://example.com">
+      </label>
+      <label><span>프로젝트 영상 <small>· 1개, 최대 50MB</small></span>
+        <input name="video" type="file" accept="video/mp4,video/webm,video/quicktime">
+      </label>
+      <label><span>프로젝트 사진 <small>· 최대 6장, 장당 50MB</small></span>
+        <input id="photosInput" name="photos" type="file" multiple accept="image/png,image/jpeg,image/gif,image/webp">
+      </label>
+      <div id="previews" class="previews"></div>
+      <label><span>프로젝트 홍보 영상 <small>· 1개, 최대 50MB</small></span>
+        <input name="promo" type="file" accept="video/mp4,video/webm,video/quicktime">
+      </label>
+
+      <p id="formError" class="form-error" hidden></p>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn" data-close>취소</button>
+        <button id="submitBtn" type="submit" class="btn btn-primary">올리기</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- 상세 모달 -->
+  <dialog id="detailDialog" class="dialog dialog-wide">
+    <div class="dialog-head">
+      <h2 id="detailName"></h2>
+      <button type="button" class="icon-btn" data-close aria-label="닫기">×</button>
+    </div>
+    <p id="detailMeta" class="meta"></p>
+    <div id="detailBody"></div>
+    <a id="detailLink" class="btn" target="_blank" rel="noopener noreferrer">프로젝트 링크 ↗</a>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="/config.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
